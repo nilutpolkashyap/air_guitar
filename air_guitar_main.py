@@ -75,52 +75,68 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                     if(chords == "Major"):
                         if(left_wrist[0] <= fret1):
                             chords_name = 'C Major'
+                            playsound('C.mp3')
                             # image = cv2.putText(image, 'C Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret2 and left_wrist[0] > fret1):
                             chords_name = 'D Major'
+                            playsound('D.mp3')
                             # image = cv2.putText(image, 'D Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret3 and left_wrist[0] > fret2):
                             chords_name = 'E Major'
+                            playsound('E.mp3')
                             # image = cv2.putText(image, 'E Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret4 and left_wrist[0] > fret3):
                             chords_name = 'F Major'
+                            playsound('F.mp3')
                             # image = cv2.putText(image, 'F Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret5 and left_wrist[0] > fret4):
                             chords_name = 'G Major'
+                            playsound('G.mp3')
                             # image = cv2.putText(image, 'G Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret6 and left_wrist[0] > fret5):
                             chords_name = 'A Major'
+                            playsound('A.mp3')
                             # image = cv2.putText(image, 'A Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret7 and left_wrist[0] > fret6):
                             chords_name = 'B Major'
+                            playsound('B.mp3')
                             # image = cv2.putText(image, 'B Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] > fret7):
                             chords_name = 'C Major'
+                            playsound('C.mp3')
                             # image = cv2.putText(image, 'C Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
                     if(chords == "Minor"):
                         if(left_wrist[0] <= fret1):
                             chords_name = 'C Minor'
+                            playsound('Cm.mp3')
                             # image = cv2.putText(image, 'C Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret2 and left_wrist[0] > fret1):
                             chords_name = 'D Minor'
+                            playsound('Dm.mp3')
                             # image = cv2.putText(image, 'D Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret3 and left_wrist[0] > fret2):
                             chords_name = 'E Minor'
+                            playsound('Em.mp3')
                             # image = cv2.putText(image, 'E Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret4 and left_wrist[0] > fret3):
                             chords_name = 'F Minor'
+                            playsound('Fm.mp3')
                             # image = cv2.putText(image, 'F Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret5 and left_wrist[0] > fret4):
                             chords_name = 'G Minor'
+                            playsound('Gm.mp3')
                             # image = cv2.putText(image, 'G Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret6 and left_wrist[0] > fret5):
                             chords_name = 'A Minor'
+                            playsound('Am.mp3')
                             # image = cv2.putText(image, 'A Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] <= fret7 and left_wrist[0] > fret6):
                             chords_name = 'B Minor'
+                            playsound('Bm.mp3')
                             # image = cv2.putText(image, 'B Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                         if(left_wrist[0] > fret7):
                             chords_name = 'C Minor'
+                            playsound('Cm.mp3')
                             # image = cv2.putText(image, 'C Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                     
             if(right_wrist[1] < right_elbow[1]):
@@ -151,7 +167,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
             
             image = cv2.putText(image, chords, (int(w-150),int(50)), font, 1, color, 2, cv2.LINE_AA)
         
-            image = cv2.putText(image, chords_name, (int(50),int(150)), font, 1, color, 2, cv2.LINE_AA)
+            image = cv2.putText(image, chords_name, (int(50),int(50)), font, 1, color, 2, cv2.LINE_AA)
         
         except:
             pass
@@ -164,7 +180,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         #                         mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
         #                          )               
         
-        cv2.imshow('Mediapipe Feed', image)
+        cv2.imshow('Air Guitar', image)
 
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
