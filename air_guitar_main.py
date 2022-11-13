@@ -11,6 +11,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 cap = cv2.VideoCapture(0)
 chords = "Major"
+chords_name = 'C Major'
 chords_val = 0
 ## Setup mediapipe instance
 with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
@@ -31,8 +32,10 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         
+        # Extract landmarks     
         try:
             landmarks = results.pose_landmarks.landmark
+    #         print(landmarks)
 
             nose = [landmarks[mp_pose.PoseLandmark.NOSE.value].x * w,landmarks[mp_pose.PoseLandmark.NOSE.value].y * h]
             left_shoulder = [landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x * w,landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y * h]
@@ -60,6 +63,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
             image = cv2.line(image, (fret5, int(left_shoulder[1] - 50)), (fret5, int(left_shoulder[1] + 200)), color, 2)
             image = cv2.line(image, (fret6, int(left_shoulder[1] - 50)), (fret6, int(left_shoulder[1] + 200)), color, 2)
             image = cv2.line(image, (fret7, int(left_shoulder[1] - 50)), (fret7, int(left_shoulder[1] + 200)), color, 2)
+#             image = cv2.line(image, (int(left_shoulder[0] + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/4), int(left_shoulder[1] - 50)), (int(left_shoulder[0] + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/8 + sd/4), int(left_shoulder[1] + 200)), color, 2)
             
             image = cv2.circle(image, (int(right_wrist[0]), int(right_wrist[1])), 10 , color, -1)
             image = cv2.circle(image, (int(left_wrist[0]), int(left_wrist[1])), 10 , color, -1)
@@ -68,22 +72,56 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                 if(sound_val == 0):
                     sound_val = 1
                     
-                    if(left_wrist[0] <= fret1):
-                        image = cv2.putText(image, 'Tune1', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret2 and left_wrist[0] > fret1):
-                        image = cv2.putText(image, 'Tune2', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret3 and left_wrist[0] > fret2):
-                        image = cv2.putText(image, 'Tune3', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret4 and left_wrist[0] > fret3):
-                        image = cv2.putText(image, 'Tune4', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret5 and left_wrist[0] > fret4):
-                        image = cv2.putText(image, 'Tune5', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret6 and left_wrist[0] > fret5):
-                        image = cv2.putText(image, 'Tune6', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] <= fret7 and left_wrist[0] > fret6):
-                        image = cv2.putText(image, 'Tune7', (50,50), font, 1, color, 2, cv2.LINE_AA)
-                    if(left_wrist[0] > fret7):
-                        image = cv2.putText(image, 'Tune8', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                    if(chords == "Major"):
+                        if(left_wrist[0] <= fret1):
+                            chords_name = 'C Major'
+                            # image = cv2.putText(image, 'C Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret2 and left_wrist[0] > fret1):
+                            chords_name = 'D Major'
+                            # image = cv2.putText(image, 'D Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret3 and left_wrist[0] > fret2):
+                            chords_name = 'E Major'
+                            # image = cv2.putText(image, 'E Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret4 and left_wrist[0] > fret3):
+                            chords_name = 'F Major'
+                            # image = cv2.putText(image, 'F Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret5 and left_wrist[0] > fret4):
+                            chords_name = 'G Major'
+                            # image = cv2.putText(image, 'G Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret6 and left_wrist[0] > fret5):
+                            chords_name = 'A Major'
+                            # image = cv2.putText(image, 'A Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret7 and left_wrist[0] > fret6):
+                            chords_name = 'B Major'
+                            # image = cv2.putText(image, 'B Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] > fret7):
+                            chords_name = 'C Major'
+                            # image = cv2.putText(image, 'C Major', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                    if(chords == "Minor"):
+                        if(left_wrist[0] <= fret1):
+                            chords_name = 'C Minor'
+                            # image = cv2.putText(image, 'C Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret2 and left_wrist[0] > fret1):
+                            chords_name = 'D Minor'
+                            # image = cv2.putText(image, 'D Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret3 and left_wrist[0] > fret2):
+                            chords_name = 'E Minor'
+                            # image = cv2.putText(image, 'E Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret4 and left_wrist[0] > fret3):
+                            chords_name = 'F Minor'
+                            # image = cv2.putText(image, 'F Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret5 and left_wrist[0] > fret4):
+                            chords_name = 'G Minor'
+                            # image = cv2.putText(image, 'G Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret6 and left_wrist[0] > fret5):
+                            chords_name = 'A Minor'
+                            # image = cv2.putText(image, 'A Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] <= fret7 and left_wrist[0] > fret6):
+                            chords_name = 'B Minor'
+                            # image = cv2.putText(image, 'B Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
+                        if(left_wrist[0] > fret7):
+                            chords_name = 'C Minor'
+                            # image = cv2.putText(image, 'C Minor', (50,50), font, 1, color, 2, cv2.LINE_AA)
                     
             if(right_wrist[1] < right_elbow[1]):
                 sound_val = 0
@@ -102,17 +140,29 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                 elif(chords == "Major"):
                     chords = "Minor"
                     chords_val = 2
+                
+#                 if(chords_val == 0):
+#                     chords_val = 1
+# #                 elif(chords == "Minor"):
+# #                     chords = "Major"
+#             if(left_wrist[1] < nose[1]):
+#                 if(chords_val == 1):
+#                     chords_val = 0
             
-            image = cv2.putText(image, chords, (50,200), font, 1, color, 2, cv2.LINE_AA)
+            image = cv2.putText(image, chords, (int(w-150),int(50)), font, 1, color, 2, cv2.LINE_AA)
+        
+            image = cv2.putText(image, chords_name, (int(50),int(150)), font, 1, color, 2, cv2.LINE_AA)
         
         except:
             pass
         
+#         image = cv2.putText(image, chords, (50,200), font, 1, color, 2, cv2.LINE_AA)
+        
         # Render detections
-        mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
-                                mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
-                                mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
-                                 )               
+        # mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
+        #                         mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
+        #                         mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
+        #                          )               
         
         cv2.imshow('Mediapipe Feed', image)
 
