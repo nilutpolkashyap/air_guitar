@@ -23,6 +23,7 @@
 ## Output 
 <div align="center">
 <img  alt="Fusion360 Model" width="100%" src="output.png" />
+<img  alt="Fusion360 Model" width="100%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/Capture.JPG" />
 <br />
 </div>
 
