@@ -3,7 +3,12 @@
 
 # Air Guitar using Mediapipe and OpenCV in Python
 
-# **About Project**
+## About Project
+
+
+
+
+
 
 
 ## Clone this Repository 
@@ -22,13 +27,19 @@
 
 ## Output 
 <div align="center">
-<img  alt="Fusion360 Model" width="100%" src="output.png" />
-<img  alt="Fusion360 Model" width="100%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/Capture.JPG" />
-<br />
+<img  alt="Fusion360 Model" width="100%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/air_guitar/mediapipe/mediapipe_output.png" />
 </div>
 
-## Output Video 
-https://youtu.be/vjEA95j5z_4
+## Output Video🎬 - https://youtu.be/vjEA95j5z_4
 
-## Guitar Chords collected from 
- https://sampleswap.org/filebrowser-new.php?d=INSTRUMENTS+%28MULTISAMPLED%29%2FGUITAR%2Fclean+electric+guitar+chords%2F
+
+## Project Created by - 
+- Nilutpol Kashyap - [nilutpolkashyap](https://github.com/nilutpolkashyap)
+- Priyanka Kashyap - [thepriyankakashyap](https://github.com/thepriyankakashyap)
+
+ Created as part of hackathon submission to [Do-Re-Mi Hacks 3](https://do-re-mi-hacks-3.devpost.com)
+
+Hackathon Submission Link - [Air Guitar](https://devpost.com/software/air-guitar-bxi0ut)
+
+Guitar Chords collected from 
+ [https://sampleswap.org](https://sampleswap.org/filebrowser-new.php?d=INSTRUMENTS+%28MULTISAMPLED%29%2FGUITAR%2Fclean+electric+guitar+chords%2F)

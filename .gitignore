@@ -1,0 +1,5 @@
+.vscode/
+__pycache__/
+*.mp4
+*.mp3
+.ipynb_checkpoints
