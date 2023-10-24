@@ -15,10 +15,10 @@
 
 ## Output
 <div align="center">
-<img  alt="Fusion360 Model" width="50%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/air_guitar/openvino_openpose/Output1.JPG" />
+<img  alt="Fusion360 Model" width="50%" src="./images/Output1.JPG" />
 </div>
 <div align="center">
-<img  alt="Fusion360 Model" width="50%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/air_guitar/openvino_openpose/Output2.JPG" />
+<img  alt="Fusion360 Model" width="50%" src="./images/Output2.JPG" />
 </div>
 
 ## Output Video🎬 - https://youtu.be/jAbdUZQsDHc
