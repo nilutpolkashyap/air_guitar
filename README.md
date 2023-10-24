@@ -25,7 +25,7 @@ For playing the chord sound, Playsound library in Python is used.
 
 ## Output 
 <div align="center">
-<img  alt="Fusion360 Model" width="100%" src="https://gitlab.com/nilutpolkashyap/git_images/-/raw/main/air_guitar/mediapipe/mediapipe_output.png" />
+<img  alt="Fusion360 Model" width="100%" src="output.png" />
 </div>
 
 ## Output Video🎬 - https://youtu.be/vjEA95j5z_4
